@@ -8,6 +8,7 @@ header {
     background-color: lightgray;
     display: flex;
     justify-content: space-around;
+    align-items: center;
 }
 
 img {
@@ -62,7 +63,7 @@ span:hover{
     text-align: center;
     width: 30vw;
     height: 35vh;
-    background-color: white;
+    background-color: beige;
     border-radius: 20%;
     display: flex;
     flex-direction: column;
@@ -92,6 +93,10 @@ span:hover{
     background-color: lightcoral;
 }
 
+#checkbox {
+    display: none;
+}
+
 @media screen and (max-width : 500px) {
     .menu {
         display: inline-block;
@@ -99,11 +104,15 @@ span:hover{
         font-size: 2rem;
     }
     nav {
-        display: none;
+        /* display: none; */
+        position: absolute;
+        top: -150px;
+        width: 1vw; 
+        transition: all 1.5s;
     }
 
     .floating-container p{
-        font-size: 0.7rem;
+        font-size: 0.6rem;
     }
 
     .floating-container h1 {
@@ -117,6 +126,29 @@ span:hover{
     .main-container {
         background-image: url("https://images.hdqwalls.com/download/space-art-planet-4k-59-540x960.jpg");
     }
+
+    #checkbox {
+        display: none;
+    }
+
+    #checkbox:checked+nav {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: absolute;
+        width: 100%;
+        background-color: white;
+        top: 70px;
+        left:0;
+        z-index: 1;
+        font-size: 1.8rem;
+        gap: 10px;
+    }
+    
+    #checkbox:checked+nav+label{
+        background-color: white;
+    }
+    
 }
 
 @media screen and (width < 1000px) and (width >= 500px) {
@@ -135,5 +167,9 @@ span:hover{
 
     .main-container {
         background-image: url("https://images.hdqwalls.com/download/space-art-planet-4k-59-1366x768.jpg");
+    }
+
+    #checkbox {
+        display: none;
     }
 }
